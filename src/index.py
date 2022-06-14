@@ -47,7 +47,7 @@ def main_handler(event, context):
     )
     print(url)
     return {
-        "isBase64Encoded": false,
+        "isBase64Encoded": False,
         "statusCode": 200,
         "headers": {"Content-Type": "application/json"},
         "body": {
