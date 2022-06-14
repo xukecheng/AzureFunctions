@@ -1,7 +1,7 @@
 # -*- coding: utf8 -*-
 import json
-from qcloud_cos import CosConfig
-from qcloud_cos import CosS3Client
+from qcloud_cos_v5 import CosConfig
+from qcloud_cos_v5 import CosS3Client
 import sys
 import logging
 import requests
