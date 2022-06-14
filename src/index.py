@@ -35,7 +35,7 @@ def main_handler(event, context):
 
     logger.info(str(event))
     query_string = event["queryString"]
-    extension_name = queryString["extension_name"]
+    extension_name = query_string["extension_name"]
     filename = "%s%s" % (int(round(time.time() * 1000)), f".{extension_name}")
 
     # 生成上传URL，未限制请求头部和请求参数
