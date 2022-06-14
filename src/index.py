@@ -50,10 +50,12 @@ def main_handler(event, context):
         "isBase64Encoded": False,
         "statusCode": 200,
         "headers": {"Content-Type": "application/json"},
-        "body": {
-            "read_url": f"{cdn_url}/{extension_name}/{filename}",
-            "upload_url": url,
-        },
+        "body": json.dumps(
+            {
+                "read_url": f"{cdn_url}{extension_name}/{filename}",
+                "upload_url": url,
+            }
+        ),
     }
 
 
