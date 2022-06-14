@@ -1,16 +1,20 @@
 # -*- coding: utf8 -*-
 import json
-from qcloud_cos_v5 import CosConfig
-from qcloud_cos_v5 import CosS3Client
+from qcloud_cos import CosConfig
+from qcloud_cos import CosS3Client
 import sys
 import logging
 import requests
 import time
 import os
 
-# 正常情况日志级别使用INFO，需要定位时可以修改为DEBUG，此时SDK会打印和服务端的通信信息
-logging.basicConfig(level=logging.INFO, stream=sys.stdout)
 
+# 日志配置
+logging.basicConfig(level=logging.INFO, stream=sys.stdout)
+logger = logging.getLogger()
+logger.setLevel(level=logging.INFO)
+
+# 环境变量获取
 secret_id = os.getenv("SecretId")
 secret_key = os.getenv("SecretKey")
 region = os.getenv("region")
@@ -53,6 +57,9 @@ def main_handler(event, context):
 
 
 if __name__ == "__main__":
-    event = ""
+    event = event = {
+        "body": "",
+        "pathParameters": {"extension_name": "png"},
+    }
     context = {"request_id": "123"}
     main_handler(event, context)
