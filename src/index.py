@@ -34,8 +34,8 @@ def main_handler(event, context):
     logger.info("start main handler")
 
     logger.info(str(event))
-    path_parameters = event["pathParameters"]
-    extension_name = path_parameters["extension_name"]
+    query_string = event["queryString"]
+    extension_name = queryString["extension_name"]
     filename = "%s%s" % (int(round(time.time() * 1000)), f".{extension_name}")
 
     # 生成上传URL，未限制请求头部和请求参数
@@ -60,7 +60,7 @@ def main_handler(event, context):
 if __name__ == "__main__":
     event = event = {
         "body": "",
-        "pathParameters": {"extension_name": "png"},
+        "queryString": {"extension_name": "png"},
     }
     context = {"request_id": "123"}
     main_handler(event, context)
