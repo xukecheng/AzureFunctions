@@ -4,3 +4,4 @@
 
 azure-functions
 cos-python-sdk-v5
+bs4
