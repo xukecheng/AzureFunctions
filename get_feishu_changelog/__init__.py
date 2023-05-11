@@ -11,6 +11,10 @@ from bs4 import BeautifulSoup
 def main(req: func.HttpRequest) -> func.HttpResponse:
     logging.info("Python HTTP trigger function processed a request.")
 
+    # trasfer resqust bytes body to string
+    body = req.get_body().decode("utf-8")
+    logging.info(body)
+
     paragraphs = parse_html()
 
     if paragraphs:
