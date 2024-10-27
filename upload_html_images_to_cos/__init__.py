@@ -66,7 +66,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
                 # 生成 object_key，使用与现有函数相同的路径格式
                 timestamp = datetime.datetime.now()
                 object_key = (
-                    f"images/{timestamp.strftime('%Y')}/{timestamp.strftime('%m')}/"
+                    f"html_images/{timestamp.strftime('%Y')}/{timestamp.strftime('%m')}/"
                     f"{timestamp.strftime('%Y%m%d%H%M%S')}_{len(processed_results)}.{file_ext}"
                 )
 
