@@ -26,6 +26,8 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         # 获取请求体内容
         req_body = req.get_json()
         html_content = req_body.get("html")
+        title = req_body.get("title")
+        url = req_body.get("url")
 
         if not html_content:
             return func.HttpResponse(
@@ -90,6 +92,8 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
                     "code": 200,
                     "msg": "success",
                     "data": {
+                        "title": title,
+                        "url": url,
                         "html": str(soup),
                         "processed_images": processed_results,
                         "total_processed": len(processed_results),
